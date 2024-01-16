@@ -14,5 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('banner.index');
 });
+
+Route::get('/beranda', function () {
+    return view('home.index');
+});
+
+Route::get('/post', function () {
+    return view('post.index');
+});
+
+Route::view('/kontak', 'contact.index');
+
+Route::view('/tentang', 'about.index');
+
+Route::view('/login', 'login.index');
+Route::view('/signin', 'signin.index');
