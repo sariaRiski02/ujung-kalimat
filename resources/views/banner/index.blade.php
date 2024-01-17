@@ -3,20 +3,63 @@
 {{-- Navbar --}}    
     @include('template.header.index')
 
-    <main>
+    <main style="margin-top: 100px">
         <div class="container py-4 mt-3">
           <div class="pb-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>ujung-kalimat</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
-              <span class="fs-4">Ujung kalimat</span>
-            </a>
           </div>
       
           <div class="p-5 mb-4 bg-dark rounded-5">
             <div class="container-fluid py-5">
               <h1 class="display-5 fw-bold text-light ">Kamu dan ujung kalimat itu</h1>
-              <p class="col-md-8 fs-5 text-light">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-              <button class="btn btn-primary btn-lg" type="button">Example button</button>
+              <div class="author mb-2">
+
+                <span class="text-white">
+                  By:
+                </span>
+                  <picture>
+                    <img src="/pictures/logo.png" alt="author" class="rounded-circle border" width="30px">
+                  </picture>
+
+              
+                    <span class="text-white">
+                      rizkysaria
+                    </span>
+          
+              </div>
+              <p class="col-md-8 fs-6 text-light">
+                Membaca adalah jendela menuju masa lalu, memungkinkan kita memahami dan menghargai perjalanan yang telah dilalui. Menuliskan cerita adalah cara kita memberikan suara kepada kenangan, membiarkannya bersinar di antara jarak waktu. Sebuah panggilan untuk merenung tentang asal-usul dan mengungkapkan pelajaran berharga yang mungkin tersembunyi di masa lalu. Sebab, dalam setiap detik yang kita jalani, terkandung potensi kebijaksanaan yang dapat diteruskan kepada generasi mendatang.
+              </p>
+
+              <div class="reaction mb-3 d-flex gap-2">
+                
+                <button type="button" class="btn btn-sm btn-outline-danger d-flex align-items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                  </svg>
+                  <span class="pb-1"> 1 </span>
+                </button>
+
+                <button type="button" class="btn btn-outline-warning">
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-dots" viewBox="0 0 16 16">
+                    <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+                    <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                  </svg>
+                  <span class="pb-1"> 1 </span>
+
+                </button>
+
+                <button type="button" class="btn btn-outline-primary">
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                    <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+                  </svg>
+                  <span class="pb-1"> 1 </span>
+
+                </button>
+
+              </div>
+              <button class="btn btn-outline-light btn-lg" type="button">baca selengkapnya</button>
             </div>
           </div>
       
