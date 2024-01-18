@@ -21,7 +21,7 @@ Route::get('/beranda', function () {
     return view('home.index');
 });
 
-Route::get('/post', function () {
+Route::get('/blog', function () {
     return view('post.index');
 });
 

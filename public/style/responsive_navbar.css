@@ -6,4 +6,36 @@
     }
 
 
+    #contain{
+      /* px-5 py-3 mx-5 */
+
+      padding: 1rem 6rem;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+      
+    }
+
+
+  @media screen and (max-width: 655px) {
+    
+    #contain{
+        padding: 0rem 0rem;
+        padding-top: 0;
+        margin: 0;
+        margin-left: 1px;
+    }
+
+    .image-wrapper{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 363px) {
+    
+    .main-text, #main-text{
+      font-size: 10px;
+    }
+    .display-5{
+      font-size: 2px;
+      color: red;
+    }
+  }
 
