@@ -11,7 +11,7 @@
           <div class="p-5 mb-4 bg-dark rounded-5">
             <div class="container-fluid py-2">
               <h1 class="display-5 fw-bold text-light ">Kamu dan ujung kalimat itu</h1>
-              <div class="author mb-2">
+              <div class="author mb-2 text-muted">
                 <span class="text-white">
                   By:
                 </span>

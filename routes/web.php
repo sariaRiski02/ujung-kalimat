@@ -28,6 +28,7 @@ Route::get('/blog', function () {
 Route::view('/kontak', 'contact.index');
 
 Route::view('/tentang', 'about.index');
-
-Route::view('/login', 'login.index');
 Route::view('/signin', 'signin.index');
+Route::view('/signup', 'signup.index');
+Route::view('/penulis', 'author.index');
+Route::view('/kategori', 'categories.index');

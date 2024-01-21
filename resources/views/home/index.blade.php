@@ -98,12 +98,19 @@
                     </div>
                 </div>
             </div>
+
+            
             
             
 
             
         </div>
+        
     </div>
+
+    <span class="d-flex justify-content-center">
+        <a href="/author" class="text-decoration-none">Lihat semua penulis</a>
+    </span>
 </section>
 
 

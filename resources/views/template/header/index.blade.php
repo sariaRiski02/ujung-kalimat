@@ -38,14 +38,31 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/penulis">Penulis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/kategori">Kategori</a>
+          <li class="nav-item">
             <a class="nav-link" href="/kontak">Kontak</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tentang">Tentang</a>
           </li>
+          </li>
         </ul>
-        <div class="d-flex">
-          <a href="/signin" class="btn btn-outline-dark">Masuk</a>
+        <div class="d-flex align-items-center gap-3">
+          <a href="/nulis" class="btn btn-outline-dark d-flex align-items-center">
+            <i class="bi bi-plus fs-6"></i>
+            <span>Nulis Yuk!</span>
+          </a>
+          
+          {{-- <a href="/signin" class="btn btn-outline-dark">Masuk</a> --}}
+
+          <a href="/profil">
+            <picture>
+              <img src="/pictures/logo.png" alt="author" class="rounded-circle" width="35px">
+            </picture>
+          </a>
         </div>
       </div>
     </div>
