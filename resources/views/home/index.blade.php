@@ -109,7 +109,7 @@
     </div>
 
     <span class="d-flex justify-content-center">
-        <a href="/author" class="text-decoration-none">Lihat semua penulis</a>
+        <a href="/penulis" class="text-decoration-none">Lihat semua penulis</a>
     </span>
 </section>
 

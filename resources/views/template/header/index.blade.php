@@ -60,7 +60,7 @@
 
           <a href="/profil">
             <picture>
-              <img src="/pictures/logo.png" alt="author" class="rounded-circle" width="35px">
+              <img src="/pictures/logo.png" alt="author" class="rounded-circle border-dark" width="35px">
             </picture>
           </a>
         </div>

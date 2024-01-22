@@ -15,7 +15,7 @@
                 <span class="text-white">
                   By:
                 </span>
-                <a href="" class="text-decoration-none">
+                <a href="/profil" class="text-decoration-none">
                 <picture>
                   <img src="/pictures/logo.png" alt="author" class="rounded-circle border" width="30px">
                 </picture>

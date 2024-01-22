@@ -32,3 +32,6 @@ Route::view('/signin', 'signin.index');
 Route::view('/signup', 'signup.index');
 Route::view('/penulis', 'author.index');
 Route::view('/kategori', 'categories.index');
+Route::view('/profil', 'profil.index');
+
+Route::view('/user', 'writer.index');

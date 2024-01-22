@@ -20,7 +20,7 @@
                 </div>
                 <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in">
                     <h6 class="fw-700 dark-color mb-1">
-                        <a href="#" class="text-decoration-none">Riski saria</a>
+                        <a href="/user" class="text-decoration-none">Riski saria</a>
                     </h6>
                     <small>Co-Founder</small>
                     <div class="pt-2">
@@ -47,7 +47,7 @@
                 </div>
                 <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in">
                     <h6 class="fw-700 dark-color mb-1">
-                        <a href="#" class="text-decoration-none">Riski saria</a>
+                        <a href="/user" class="text-decoration-none">Riski saria</a>
                     </h6>
                     <small>Co-Founder</small>
                     <div class="pt-2">
@@ -74,7 +74,7 @@
                 </div>
                 <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in">
                     <h6 class="fw-700 dark-color mb-1">
-                        <a href="#" class="text-decoration-none">Riski saria</a>
+                        <a href="/user" class="text-decoration-none">Riski saria</a>
                     </h6>
                     <small>Co-Founder</small>
                     <div class="pt-2">
@@ -101,7 +101,7 @@
                 </div>
                 <div class="mx-2 mx-xl-3 shadow rounded-3 position-relative mt-n4 bg-white p-4 pt-6 mx-4 text-center hover-top--in">
                     <h6 class="fw-700 dark-color mb-1">
-                        <a href="#" class="text-decoration-none">Riski saria</a>
+                        <a href="/user" class="text-decoration-none">Riski saria</a>
                     </h6>
                     <small>Co-Founder</small>
                     <div class="pt-2">
@@ -121,6 +121,7 @@
                 </div>
             </div>
         </div>
+        
 
         
         
