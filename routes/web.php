@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SignInController;
 use App\Http\Controllers\SignUpController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/beranda', function () {
     return view('home.index');
-});
+})->name('home');
 
 Route::get('/blog', function () {
     return view('post.index');
@@ -36,8 +37,8 @@ Route::view('/user', 'writer.index');
 Route::view('/nulis', 'writePage.index');
 Route::view('/tentang', 'about.index');
 
-Route::view('/signin', 'signin.index');
-
-Route::post('/signup', [SignUpController::class, 'signup']);
+Route::view('/signin', 'signin.index')->name('signin');
+Route::post('/signin', [SignInController::class, 'signin']);
 
 Route::view('/signup', 'signup.index')->name('signup');
+Route::post('/signup', [SignUpController::class, 'signup']);
