@@ -30,11 +30,9 @@ class SignInController extends Controller
                 ]
             );
 
-
-
             // return redirect()->route('home');
             if ($hasil[0]->password == $request->input('password')) {
-                return redirect()->route('home');
+                return redirect()->route('nulis')->cookie('IsMember', 'true', 1000);
             } else {
                 return redirect()->route('signin')->with('info', 'gagal');
             }
@@ -42,8 +40,10 @@ class SignInController extends Controller
             // buat laporan ke log file
             Log::info($request->input('email') . ' ' . "login");
         } catch (ValidationException $exeception) {
+            // menangkap error
             $message = $exeception->validator->errors();
 
+            // buat laporan ke log file
             Log::info($message->toJson(JSON_PRETTY_PRINT));
 
             return redirect()->route('signin')->withErrors($message)->withInput();

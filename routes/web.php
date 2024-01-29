@@ -31,10 +31,10 @@ Route::view('/kontak', 'contact.index');
 
 Route::view('/penulis', 'author.index');
 Route::view('/kategori', 'categories.index');
-Route::view('/profil', 'profil.index');
+Route::view('/profil', 'profil.index')->middleware('isMember');
 
 Route::view('/user', 'writer.index');
-Route::view('/nulis', 'writePage.index');
+Route::view('/nulis', 'writePage.index')->name('nulis')->middleware('isMember');
 Route::view('/tentang', 'about.index');
 
 Route::view('/signin', 'signin.index')->name('signin');
