@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -30,9 +31,15 @@ class SignInController extends Controller
                 ]
             );
 
+
+
             // return redirect()->route('home');
             if ($hasil[0]->password == $request->input('password')) {
-                return redirect()->route('nulis')->cookie('IsMember', 'true', 1000);
+
+                // set session
+                session()->put('key', $request->input('email'));
+                // redirect ke beranda
+                return response()->redirectToRoute('home')->cookie('IsMember', $request->input('email'), 1000);
             } else {
                 return redirect()->route('signin')->with('info', 'gagal');
             }

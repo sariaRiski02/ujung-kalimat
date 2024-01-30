@@ -16,9 +16,14 @@ class LoginMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         $IsMember = $request->cookie('IsMember');
-        if ($IsMember) {
+        $isSession = session()->getName('key');
+
+        if ($IsMember && $isSession) {
+
             return $next($request);
+        } else {
+            session()->forget('key');
+            return response()->redirectToRoute('signin');
         }
-        return response()->redirectToRoute('signin');
     }
 }

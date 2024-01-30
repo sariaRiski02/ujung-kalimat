@@ -9,12 +9,12 @@ return [
     | Default Session Driver
     |--------------------------------------------------------------------------
     |
-    | This option controls the default session "driver" that will be used on
-    | requests. By default, we will use the lightweight native driver but
-    | you may specify any of the other wonderful drivers provided here.
-    |
-    | Supported: "file", "cookie", "database", "apc",
-    |            "memcached", "redis", "dynamodb", "array"
+    |Opsi ini mengontrol "driver" sesi default yang akan digunakan 
+     | permintaan. Secara default, kami akan menggunakan pengemudi asli yang ringan tetapi 
+     | Anda dapat menentukan salah satu pengemudi luar biasa lainnya yang disediakan di sini. 
+     | 
+     | Didukung: "File", "Cookie", "Database", "APC", 
+     | "Memcached", "Redis", "Dynamodb", "Array"
     |
     */
 
@@ -25,9 +25,9 @@ return [
     | Session Lifetime
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the number of minutes that you wish the session
-    | to be allowed to remain idle before it expires. If you want them
-    | to immediately expire on the browser closing, set that option.
+    | Di sini Anda dapat menentukan jumlah menit yang Anda harapkan dari sesi ini 
+    | diizinkan untuk tetap diam sebelum kedaluwarsa.Jika Anda menginginkannya 
+    | Untuk segera kedaluwarsa pada penutupan browser, atur opsi itu.
     |
     */
 
@@ -80,7 +80,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | When using the "database" session driver, you may specify the table we
-    | should use to manage the sessions. Of course, a sensible default is
+    | should use to manage the sessions. Of course, a masuk akal default is
     | provided for you; however, you are free to change this as needed.
     |
     */
@@ -128,7 +128,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug(env('APP_NAME', 'laravel'), '_') . '_session'
     ),
 
     /*

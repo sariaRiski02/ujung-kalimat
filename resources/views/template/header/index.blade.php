@@ -56,13 +56,13 @@
           </li>
           </li>
         </ul>
+
+        @if(session('key') && cookie('IsMember'))  
         <div class="d-flex align-items-center gap-3">
           <a href="/nulis" class="btn btn-outline-dark d-flex align-items-center">
             <i class="bi bi-plus fs-6"></i>
             <span>Nulis Yuk!</span>
           </a>
-          
-          {{-- <a href="/signin" class="btn btn-outline-dark">Masuk</a> --}}
 
           <a href="/profil">
             <picture>
@@ -70,6 +70,10 @@
             </picture>
           </a>
         </div>
+        @else
+        <a href="/signin" class="btn btn-outline-dark">Masuk</a>
+        @endif
+
       </div>
     </div>
   </nav>
