@@ -27,5 +27,11 @@ class LoginTest extends TestCase
             'email' => 'mrizkisaria002@gmail.com',
             'password' => null
         ])->assertRedirect('/signin')->assertSessionHasErrors(['password' => 'Kolom password harus diisi']);
+
+
+        // $this->post('/signin', [
+        //     'email' => 'mrizkisaria002@gmail.com',
+        //     'password' => 
+        // ])->assertRedirect('/signin')->assertSessionHasErrors(['password' => 'Kolom password harus diisi']);
     }
 }
