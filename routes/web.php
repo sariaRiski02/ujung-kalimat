@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+|Di sinilah Anda dapat mendaftarkan rute web untuk aplikasi Anda. Ini 
+ | rute dimuat oleh ruteServiceProvider dan semuanya akan 
+ | Ditugaskan ke grup middleware "web". Buat sesuatu yang hebat!
 |
 */
 
@@ -37,8 +37,8 @@ Route::view('/user', 'writer.index');
 Route::view('/nulis', 'writePage.index')->name('nulis')->middleware('isMember');
 Route::view('/tentang', 'about.index');
 
-Route::view('/signin', 'signin.index')->name('signin');
+Route::view('/signin', 'signin.index')->name('signin')->middleware('notMember');
 Route::post('/signin', [SignInController::class, 'signin']);
 
-Route::view('/signup', 'signup.index')->name('signup');
+Route::view('/signup', 'signup.index')->name('signup')->middleware('notMember');
 Route::post('/signup', [SignUpController::class, 'signup']);

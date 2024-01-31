@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class LoginMiddleware
+class IsMember
 {
     /**
      * Handle an incoming request.
@@ -15,16 +15,11 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $IsMember = $request->cookie('IsMember');
-        $isSession = session()->getName('key');
+        if ($request->cookie('IsMember') && session('key')) {
 
-        if ($IsMember && $isSession) {
-
-
-            return $next($request);
-        } else {
-            session()->forget('key');
-            return response()->redirectToRoute('signin');
+            $result = $request->cookie('IsMember') == session('key');
+            return $result ?  redirect()->route('home') : $next($request);
         }
+        return $next($request);
     }
 }

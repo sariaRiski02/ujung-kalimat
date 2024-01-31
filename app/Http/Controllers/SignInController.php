@@ -11,19 +11,35 @@ use Illuminate\Validation\ValidationException;
 
 class SignInController extends Controller
 {
+
+
+    // code pada bagian ini mungkin tidak clean, dikarenakan tujuannya adalah belajar menggunakan helper atau syntax yang baru saya pelajari
+
     public function signin(Request $request)
     {
+
+
+        // message for errors
+
+        $message = [
+            'required' => "Kolom :attribute harus diisi",
+            'email' => "Format :attribute email tidak valid"
+        ];
 
         // validation data 
         $validator = Validator::make($request->all(), [
             'email' => 'required|email:dns',
             'password' => 'required'
-        ]);
+        ], $message);
 
         // redirect ke halaman utama hanya jika berhasil melewati validasi sekeligus set cookie
         try {
 
+
             $validator->validate();
+            // buat laporan ke log file
+            Log::info($request->input('email') . ' ' . "login");
+
             $hasil = DB::select(
                 'select password from users where email = :email',
                 [
@@ -31,21 +47,18 @@ class SignInController extends Controller
                 ]
             );
 
+            if (count($hasil)) {
 
-
-            // return redirect()->route('home');
-            if ($hasil[0]->password == $request->input('password')) {
-
-                // set session
-                session()->put('key', $request->input('email'));
-                // redirect ke beranda
-                return response()->redirectToRoute('home')->cookie('IsMember', $request->input('email'), 1000);
-            } else {
-                return redirect()->route('signin')->with('info', 'gagal');
+                if ($hasil[0]->password == $request->input('password')) {
+                    // set session
+                    session()->put('key', $request->input('email'));
+                    // redirect ke beranda
+                    return response()->redirectToRoute('home')->cookie('IsMember', $request->input('email'), 1000);
+                } else {
+                    return redirect()->route('signin')->with('info', 'Email atau Password salah')->withInput();
+                }
             }
-
-            // buat laporan ke log file
-            Log::info($request->input('email') . ' ' . "login");
+            return redirect()->route('signin')->with('info', 'Email atau Password salah')->withInput();
         } catch (ValidationException $exeception) {
             // menangkap error
             $message = $exeception->validator->errors();

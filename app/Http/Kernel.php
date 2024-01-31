@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\IsMember;
 use App\Http\Middleware\LoginMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -54,6 +55,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $middlewareAliases = [
+        'notMember' => IsMember::class,
         'isMember' => LoginMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

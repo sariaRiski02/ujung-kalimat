@@ -14,14 +14,14 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email">E-Mail Address</label>
-                                <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
-                                @if(session('info'))
-
-                                <div class="invaild-feedback">
-                                    {{ session('info') }}
+                                <input id="email" type="email" class="form-control 
+                                @error('email')
+                                    is-invalid
+                                @enderror " name="email" value="{{ old('email') }}" required autofocus>
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('email') }}
                                 </div>
-                                    
-                                @endif
+                                
                             </div>
 
                             <div class="mb-3">
@@ -31,22 +31,25 @@
                                         Forgot Password?
                                     </a> --}}
                                 </div>
-                                <input id="password" type="password" class="form-control" name="password" required>
-                                @isset($error)
-
-                                <div class="text-center text-danger">
-                                    {{ $error }}
+                                <input id="password" type="password" class="form-control  
+                                @error('password')
+                                is-invalid
+                                @enderror " name="password" required>
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('password') }}
                                 </div>
-                                    
-                                @endisset
                             </div>
 
-                            <div class="d-flex align-items-center">
-                                <div class="form-check">
-                                    <input type="checkbox" name="remember" id="remember" class="form-check-input">
-                                    <label for="remember" class="form-check-label">Ingat saya</label>
+                            @if(session('info'))
+
+                                <div class="text-center text-danger py-2">
+                                    {{ session('info') }}
                                 </div>
-                                <button type="submit" class="btn btn-primary ms-auto">
+                                    
+                                @endif
+                            <div class="d-flex justify-content-center">
+                                
+                                <button type="submit" class="btn btn-primary" style="width: 100%">
                                     Masuk
                                 </button>
                             </div>
