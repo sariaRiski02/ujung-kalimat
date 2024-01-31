@@ -5,4 +5,4 @@
 </a>
 </p>
 
-Ujung kalimat adalah website gratis untuk para penulis diluar sana
+<p align="center"> Ujung kalimat adalah website gratis untuk para penulis diluar sana </p>
