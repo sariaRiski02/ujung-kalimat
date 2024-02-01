@@ -13,21 +13,65 @@ class SignUpTest extends TestCase
 
         $response = $this->post('/signup', [
             'name' => 'riski',
-            'email' => 'mrizkisaria@gmail.com',
+            'email' => 'coba002@gmail.com',
             'password' => 'rahasia'
         ]);
 
-        $response->assertStatus(200)
-            ->assertSeeText('berhasil');
+        $response->assertRedirect('/signin');
     }
 
     public function testSignupFails()
     {
-        $response = $this->post('/signup', [
-            'name' => 'saria',
+
+        // ketika password kosong
+        $this->post('/signup', [
+            'name' => 'haikal',
             'email' => 'haikal_takapesi@gmail.com',
             'password' => ''
-        ]);
-        $response->assertStatus(200)->assertSeeText('tidak berhasil');
+        ])->assertRedirect('/signup')
+            ->assertSessionHasErrors(['password' => 'Kolom password harus diisi.']);
+
+
+        // ketika nama kosong
+
+        $this->post('/signup', [
+            'name' => '',
+            'email' => 'haikal_takapesi@gmail.com',
+            'password' => 'rahasia'
+        ])->assertRedirect('/signup')
+            ->assertSessionHasErrors(['name' => 'Kolom name harus diisi.']);
+
+        // ketika email kosong
+        $this->post('/signup', [
+            'name' => 'rahasia',
+            'email' => '',
+            'password' => 'rahasia'
+        ])->assertRedirect('/signup')
+            ->assertSessionHasErrors(['email' => 'Kolom email harus diisi.']);
+
+
+        // ketika semuanya kosong
+        $this->post('/signup', [
+            'name' => '',
+            'email' => '',
+            'password' => ''
+        ])->assertRedirect('/signup')
+            ->assertSessionHasErrors([
+                'name' => 'Kolom name harus diisi.',
+                'email' => 'Kolom email harus diisi.',
+                'password' => 'Kolom password harus diisi.'
+            ]);
+
+        // ketika email tidak valid 
+
+        $this->post('/signup', [
+            'name' => 'sahrul',
+            'email' => 'rahasia',
+            'passoword' => 'rahasia'
+
+        ])->assertRedirect('/signup')
+            ->assertSessionHasErrors([
+                'email' => 'Format email tidak valid.'
+            ]);
     }
 }

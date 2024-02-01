@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Client\Response;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -23,7 +24,7 @@ class SignInController extends Controller
 
         $message = [
             'required' => "Kolom :attribute harus diisi",
-            'email' => "Format :attribute email tidak valid"
+            'email' => "Format :attribute tidak valid"
         ];
 
         // validation data 
@@ -49,7 +50,8 @@ class SignInController extends Controller
 
             if (count($hasil)) {
 
-                if ($hasil[0]->password == $request->input('password')) {
+                if (Hash::check($request->input('password'), $hasil[0]->password)) {
+
                     // set session
                     session()->put('key', $request->input('email'));
                     // redirect ke beranda

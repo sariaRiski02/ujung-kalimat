@@ -24,14 +24,20 @@ class SignUpController extends Controller
         $rules = [
             'name' => 'required',
             'email' => 'required|email:rfc,dns|unique:users',
-            'password' => 'required'
+            'password' => [
+                'required',
+                'min:8', // Minimal 8 karakter
+                'regex:/[0-9]/' // Minimal satu angka
+            ]
         ];
 
         // custome message error
         $message = [
             'required' => 'Kolom :attribute harus diisi.',
             'unique' => ':attribute sudah digunakan.',
-            'email' => 'Format :attribute tidak valid.'
+            'email' => 'Format :attribute tidak valid.',
+            'min' => 'Kata sandi minimal harus :min karakter.',
+            'regex' => 'Kata sandi harus memiliki setidaknya satu angka.'
         ];
 
         // membuat validasi apakah inputan sudah sesuai dengan aturan/rules
