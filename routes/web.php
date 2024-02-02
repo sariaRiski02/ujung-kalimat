@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\SignInController;
+use App\Http\Controllers\SignoutController;
 use App\Http\Controllers\SignUpController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +44,9 @@ Route::post('/signin', [SignInController::class, 'signin']);
 
 Route::view('/signup', 'signup.index')->name('signup')->middleware('notMember');
 Route::post('/signup', [SignUpController::class, 'signup']);
+
+// signout
+Route::get('/signout', [SignoutController::class, 'signout']);
+
+// save content
+Route::post('/content', [ContentController::class, 'content']);

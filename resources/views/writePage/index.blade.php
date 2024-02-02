@@ -21,29 +21,37 @@
 
 
 
-<form action="" method="POST" class="d-flex flex-column gap-2">
-    
+<form action="/content" method="POST" enctype="multipart/form-data" class="d-flex flex-column gap-2">
+    @csrf
         <div class="row mb-2">
             <div class="input-group col-md">
                 <select class="form-select" id="inputGroupSelect02">
                     <option selected>Pilih kategori</option>
-                    <option value="Programming">One</option>
-                    <option value="Poem">Two</option>
-                    <option value="fiction">Three</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Poem">Puisi</option>
+                    <option value="fiction">Fiksi</option>
                 </select>
             </div>
         
-            <div class="col-md text-center">
+            <div class="col-md-3 text-center" style="width: 100%;">
                 Atau
             </div>
         
             <div class="col-md ">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="buat kategori">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="buat kategori anda">
             </div>
         </div>
     
     
-    
+        <div class="mb-3">
+          
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul Blog">
+        </div>
+
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Masukan gambar</label>
+          <input class="form-control" type="file" id="formFile" accept="image/*">
+        </div>
     
     <textarea name="content">
         
