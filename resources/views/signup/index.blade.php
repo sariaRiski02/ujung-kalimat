@@ -57,6 +57,12 @@
                                     {{ $errors->first('password') }}
                                 </div>
                             </div>
+                            @error('info')
+                            <div class="text-center text-red">
+                                {{ $errors->first('info') }}
+                            </div>
+    
+                            @enderror
 
                             <p class="form-text text-warning mb-3">
                                 

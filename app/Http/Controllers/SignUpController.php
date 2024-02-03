@@ -46,17 +46,21 @@ class SignUpController extends Controller
         // kondisi ketika validasi berhasil, menyimpan hasil inputan ke database
         if ($validator->passes()) {
 
-            // insert data kedalam database menggunakan raw SQL
-            // for learn only
-            DB::insert(
-                'INSERT INTO users (name, email, password) values (:name, :email, :password)',
-                [
-                    'name' => $data["name"],
-                    'email' => $data["email"],
-                    'password' => bcrypt($data["password"])
-                ]
-            );
-            return response()->redirectToRoute('signin');
+            // add data into database using query builder
+            try {
+                DB::table('users')->insert([
+                    'name' => $data['name'],
+                    'email' => $data['email'],
+                    'password' => bcrypt($data['password'])
+                ]);
+                return response()->redirectToRoute('signin');
+            } catch (\Illuminate\Database\QueryException $t) {
+
+                Log::info($data['email'] . ' ' . $t->getMessage());
+
+                return response()->redirectToRoute('signup')
+                    ->withErrors('info', 'mohon coba lagi!');
+            }
         }
 
         // langkah yang dilakukan ketika gagal yaitu dengan mengambil pesan erorrnya dan menulis pesan kesalahannya di log file serta redirect ulang kehalaman signup sambil membawa pesan kesalahan untuk di tuliskan di halaman signup.
