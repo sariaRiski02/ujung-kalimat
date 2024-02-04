@@ -1,5 +1,7 @@
 @include('template.header.index')
 
+
+
 <section class="h-100 mt-5">
     <div class="container h-100">
         <div class="row justify-content-sm-center h-100">
@@ -40,13 +42,40 @@
                                 </div>
                             </div>
 
-                            @if(session('info'))
+                            @error('error')
 
-                                <div class="text-center text-danger py-2">
-                                    {{ session('info') }}
+                            
+                            <div class="toast" role="alert" id="myToast" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-header">
+                                  <img src="..." class="rounded me-2" alt="...">
+                                  <strong class="me-auto">Bootstrap</strong>
+                                  <small>11 mins ago</small>
+                                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                                 </div>
-                                    
-                                @endif
+                                <div class="toast-body">
+                                  Hello, world! This is a toast message.
+                                </div>
+                              </div>
+                                
+                            @enderror 
+                            
+                           <!-- Flexbox container for aligning the toasts -->
+                           
+
+                            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-header">
+                                <img src="..." class="rounded me-2" alt="...">
+                                <strong class="me-auto">Bootstrap</strong>
+                                <small>11 mins ago</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body">
+                                Hello, world! This is a toast message.
+                                </div>
+                            </div>
+                            </div>
+                            
                             <div class="d-flex justify-content-center">
                                 
                                 <button type="submit" class="btn btn-primary" style="width: 100%">
@@ -54,6 +83,9 @@
                                 </button>
                             </div>
                         </form>
+
+                    
+
                     </div>
                     <div class="card-footer py-3 border-0">
                         <div class="text-center">
@@ -66,5 +98,18 @@
         </div>
     </div>
 </section>
+
+
+<script>
+
+    // Function to show the toast
+  
+    const toast = document.querySelector('.toast');
+    var myToast = new bootstrap.Toast(toast);
+    myToast.show();
+  
+
+</script>
+
 
 @include('template.footer.index')
