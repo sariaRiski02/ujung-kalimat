@@ -4,8 +4,24 @@
 <section class="h-100 mt-5 pb-4 " style="padding-top: 100px">
     <div class="container h-100 ">
         <div class="row justify-content-sm-center h-100">
-            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">    
+            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9"> 
+                <div class="text-center mt-5 mb-2 pt-2" style="width: 100%">
+                    @error('error')
+                        
+                    
+                    <div class="toast align-items-center bg-danger" style="width: 100%" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                          <div class="toast-body text-white">
+                            {{ $message }}
+                          </div>
+                          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+
+                    @enderror
+                </div>   
                 <div class="card shadow-lg">
+                    
                     <div class="card-body p-5">
                         <div class="d-flex gap-1 align-items-center ">
                             <div class="">

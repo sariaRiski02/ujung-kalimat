@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -51,15 +52,19 @@ class SignUpController extends Controller
                 DB::table('users')->insert([
                     'name' => $data['name'],
                     'email' => $data['email'],
-                    'password' => bcrypt($data['password'])
+                    'password' => Hash::make($data['password'])
                 ]);
+
+                Log::info("IP " . $request->ip() . " berhasil daftar dengan email: " .  $data['email']);
+
+
                 return response()->redirectToRoute('signin');
             } catch (\Illuminate\Database\QueryException $t) {
 
-                Log::info($data['email'] . ' ' . $t->getMessage());
+                Log::info("user dengan IP " . $request->ip . " gagal masuk dalam database " . $data['email'] . ' pesan error : ' . $t->getMessage());
 
                 return response()->redirectToRoute('signup')
-                    ->withErrors('info', 'mohon coba lagi!');
+                    ->withErrors('error', 'Mohon coba lagi!');
             }
         }
 

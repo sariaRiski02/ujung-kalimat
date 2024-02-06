@@ -25,7 +25,7 @@
     @csrf
         <div class="row mb-2">
             <div class="input-group col-md">
-                <select class="form-select" id="inputGroupSelect02">
+                <select class="form-select" id="inputGroupSelect02" name="category">
                     <option selected>Pilih kategori</option>
                     <option value="Programming">Programming</option>
                     <option value="Poem">Puisi</option>
@@ -33,24 +33,24 @@
                 </select>
             </div>
         
-            <div class="col-md-3 text-center" style="width: 100%;">
+            <div class="col-md-3 text-center bg-gray" style="width: 100%;">
                 Atau
             </div>
         
             <div class="col-md ">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="buat kategori anda">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="buat kategori anda" name="make_category">
             </div>
         </div>
     
     
         <div class="mb-3">
           
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul Blog">
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul Blog" name="title">
         </div>
 
         <div class="mb-3">
           <label for="formFile" class="form-label">Masukan gambar</label>
-          <input class="form-control" type="file" id="formFile" accept="image/*">
+          <input class="form-control" type="file" id="formFile" accept="image/*" name="image">
         </div>
     
     <textarea name="content">
@@ -60,7 +60,19 @@
 </form>
 </div>
 
+<script>
+  const kategori = document.getElementById('inputGroupSelect02');
+  const buat_kategori = document.getElementById('exampleFormControlInput1');
 
+  kategori.addEventListener('change', function() {
+    buat_kategori.readOnly = kategori.value !== "Pilih kategori";
+  });
+
+  buat_kategori.addEventListener('change', function() {
+      kategori.disabled = !!buat_kategori.value;
+  });
+
+</script>
 
 
 @include('template.footer.index')

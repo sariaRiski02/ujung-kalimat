@@ -31,24 +31,46 @@
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/beranda">Beranda</a>
+            <a class="nav-link
+            {{ request()->is('beranda') ? 'active' : '' }}
+            " aria-current="page" href="/beranda">Beranda</a>
           </li>
          
           <li class="nav-item">
-            <a class="nav-link" href="/blog">
+            <a class="nav-link 
+            
+          {{ request()->is('blog') ? 'active' : '' }}
+            
+            " href="/blog">
               Blog
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/penulis">Penulis</a>
+            <a class="nav-link
+            
+            {{ request()->is('penulis') ? 'active' : '' }}
+
+            " href="/penulis">Penulis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/kategori">Kategori</a>
+            <a class="nav-link
+            
+            {{ request()->is('kategori') ? 'active' : '' }}
+            
+            " href="/kategori">Kategori</a>
           <li class="nav-item">
-            <a class="nav-link" href="/kontak">Kontak</a>
+            <a class="nav-link
+            
+            {{ request()->is('kontak') ? 'active' : '' }}
+
+            " href="/kontak">Kontak</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/tentang">Tentang</a>
+            <a class="nav-link
+            
+            {{ request()->is('tentang') ? 'active' : '' }}
+
+            " href="/tentang">Tentang</a>
           </li>
           </li>
         </ul>
