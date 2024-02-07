@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id('id_posts');
+            $table->id('id_post');
             $table->unsignedBigInteger('id_category');
             $table->unsignedBigInteger('id_user');
-            $table->string('title');
+            $table->string('title', 100);
             $table->text('content');
-            $table->timestamp('last_update')->useCurrent();
+            $table->string('name_image', 150);
             $table->timestamps();
-
 
             $table->foreign('id_category')->references('id_category')->on('categories');
             $table->foreign('id_user')->references('id_user')->on('users');
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('posts');
     }
 };

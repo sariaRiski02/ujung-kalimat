@@ -17,9 +17,10 @@
             ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
           });
         </script>
+
+
+
 <div class="container" style="padding-top: 130px">
-
-
 
 <form action="/content" method="POST" enctype="multipart/form-data" class="d-flex flex-column gap-2">
     @csrf
