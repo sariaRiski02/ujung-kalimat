@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class SignoutController extends Controller
 {
     public function signout(Request $request)
     {
-        $id = $request->input('id_signout');
+
+
+        Cookie::forget('IsMember');
+        session()->flush();
+        // Cookie::queue(Cookie::forget('key'))
+        return redirect('/beranda');
     }
 }

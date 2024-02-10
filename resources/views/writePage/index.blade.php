@@ -16,11 +16,27 @@
             ],
             ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
           });
+
+
+
         </script>
 
 
 
 <div class="container" style="padding-top: 130px">
+  
+
+@error('record')
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body text-white">
+      {{ $message }}
+    </div>
+  </div>
+</div>
+    
+@enderror
 
 <form action="/content" method="POST" enctype="multipart/form-data" class="d-flex flex-column gap-2">
     @csrf
@@ -72,6 +88,17 @@
   buat_kategori.addEventListener('change', function() {
       kategori.disabled = !!buat_kategori.value;
   });
+
+  
+          // const toastTrigger = document.getElementById('liveToastBtn')
+          const toastLiveExample = document.getElementById('liveToast')
+
+          
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            
+            toastBootstrap.show()
+            
+
 
 </script>
 

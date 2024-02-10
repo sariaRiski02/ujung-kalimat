@@ -61,7 +61,7 @@ class SignInController extends Controller
                 );
 
                 return redirect('/signin')->withErrors([
-                    'error' => "Email atau password tidak ditemukan"
+                    'error' => "Email atau password salah"
                 ]);
             }
         } else {

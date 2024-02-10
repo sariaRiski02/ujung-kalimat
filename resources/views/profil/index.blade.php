@@ -66,9 +66,13 @@
                             <textarea class="form-control" id="textAreaExample1" rows="4"></textarea>
                           </div> 
                     </div>
+                    <br>
+                    <div class="col-md-12">
+                        <a href="/signout" style="width: 100%" class="btn btn-danger">Keluar</a>
+                    </div>
                 </div>
             </div>
-            <div class="mt-1 text-center">
+            <div class="mt-1 text-center" style="width: 100%">
                 <button class="btn btn-primary profile-button" type="button">Simpan Deskripsi</button>
             </div>
             
