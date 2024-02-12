@@ -26,28 +26,29 @@
 <div class="container" style="padding-top: 130px">
   
 
-@error('record')
 
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-body text-white">
-      {{ $message }}
-    </div>
-  </div>
-</div>
-    
-@enderror
 
 <form action="/content" method="POST" enctype="multipart/form-data" class="d-flex flex-column gap-2">
     @csrf
         <div class="row mb-2">
             <div class="input-group col-md">
-                <select class="form-select" id="inputGroupSelect02" name="category">
-                    <option selected>Pilih kategori</option>
-                    <option value="Programming">Programming</option>
-                    <option value="Poem">Puisi</option>
-                    <option value="fiction">Fiksi</option>
+                <select class="form-select 
+                @error ('error')
+                    is-invalid
+                @enderror
+                
+                " id="inputGroupSelect02" name="category">
+                    <option selected  >Pilih kategori</option>
+                    @foreach ($categories as $item)
+
+                    <option value="{{ $item }}">{{ $item }}</option>
+                    @endforeach
+
                 </select>
+                
+
+                
+
             </div>
         
             <div class="col-md-3 text-center bg-gray" style="width: 100%;">
@@ -55,27 +56,69 @@
             </div>
         
             <div class="col-md ">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="buat kategori anda" name="make_category">
+                <input type="text" class="form-control
+                @error ('error')
+                    is-invalid
+                @enderror
+                " id="exampleFormControlInput1" placeholder="buat kategori anda" name="new_category">
+                
+
+
+                
             </div>
         </div>
     
     
         <div class="mb-3">
           
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Judul Blog" name="title">
+          <input type="text" class="form-control 
+          @error('title')
+              is-invalid    
+          @enderror
+          " id="exampleFormControlInput1" placeholder="Judul Blog" name="title">
+          @error('title') 
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+
+                @enderror
         </div>
 
         <div class="mb-3">
           <label for="formFile" class="form-label">Masukan gambar</label>
-          <input class="form-control" type="file" id="formFile" accept="image/*" name="image">
+          <input class="form-control
+          @error('image')
+          is-invalid
+          @enderror
+          " type="file" id="formFile" accept="image/*" name="image">
+          @error('image') 
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+
+                @enderror
         </div>
     
-    <textarea name="content">
+    <textarea name="content" id="validationTextarea" class="
+    @error('content')
+    is-invalid
+    @enderror
+    border-danger
+    ">
         
     </textarea>
+    @error('content') 
+    <div class="invalid-feedback">
+    {{ $message }}
+    </div>
+    @enderror
+    
+
     <button type="submit" class="btn btn-success">Post</button>
 </form>
 </div>
+
+
 
 <script>
   const kategori = document.getElementById('inputGroupSelect02');

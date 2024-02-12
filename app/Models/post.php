@@ -16,6 +16,8 @@ class post extends Model
     public $timestamps = true;
 
     protected $guarded = [
-        'id_post'
+        'id_post',
+        'id_category',
+        'id_user'
     ];
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\SignInController;
 use App\Http\Controllers\SignoutController;
 use App\Http\Controllers\SignUpController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,7 @@ Route::view('/kategori', 'categories.index');
 Route::view('/profil', 'profil.index')->middleware('isMember');
 
 Route::view('/user', 'writer.index');
-Route::view('/nulis', 'writePage.index')->name('nulis')->middleware('isMember');
+Route::get('/nulis', [ContentController::class, 'writePage'])->name('nulis')->middleware('isMember');
 Route::view('/tentang', 'about.index');
 
 Route::view('/signin', 'signin.index')->name('signin')->middleware('notMember');
