@@ -98,7 +98,7 @@ class ContentController extends Controller
             $post->id_category = $id_category;
             $post->title = $data['title'];
             $post->content = $data['content'];
-            $post->image = $name_image;
+            $post->name_image = $name_image;
             $post->save();
             return redirect('/beranda');
         }
@@ -117,5 +117,12 @@ class ContentController extends Controller
                 'categories' => Category::pluck('name_category')
             ]
         );
+    }
+
+
+    public function contentPage()
+    {
+        $data = post::query()->orderBy('created_at', 'desc')->get();
+        return view('post.index', ['data' => $data]);
     }
 }

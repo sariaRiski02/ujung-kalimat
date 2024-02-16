@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\ContentController;
-use App\Http\Controllers\SignInController;
-use App\Http\Controllers\SignoutController;
-use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\CategoryController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SignInController;
+use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\ContentController;
+use App\Http\Controllers\SignoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,14 +28,12 @@ Route::get('/beranda', function () {
     return view('home.index');
 })->name('home');
 
-Route::get('/blog', function () {
-    return view('post.index');
-});
+Route::get('/blog', [ContentController::class, 'contentPage']);
 
 Route::view('/kontak', 'contact.index');
 
-Route::view('/penulis', 'author.index');
-Route::view('/kategori', 'categories.index');
+Route::get('/penulis', [UserController::class, 'author']);
+Route::get('/kategori', [CategoryController::class, 'categories']);
 Route::view('/profil', 'profil.index')->middleware('isMember');
 
 Route::view('/user', 'writer.index');
