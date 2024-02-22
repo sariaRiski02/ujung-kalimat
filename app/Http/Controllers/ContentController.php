@@ -76,8 +76,8 @@ class ContentController extends Controller
                 $id_category = $exist;
             } else {
                 $item = new Category();
-                $item->name_category = $category;
-                $id_category = $exist;
+                $item->name_category = $category['value'];
+                $item->save();
             }
 
             // mengambil data session untuk authentication user
@@ -93,6 +93,9 @@ class ContentController extends Controller
 
             // memasukan data ke database
             $post = new post();
+
+            $id = Category::latest()->first('id_category')->id_category;
+            $id_category = $id ?? $id_category;
 
             $post->id_user = $id_user;
             $post->id_category = $id_category;

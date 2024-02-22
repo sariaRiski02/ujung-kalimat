@@ -51,3 +51,8 @@ Route::get('/signout', [SignoutController::class, 'signout']);
 
 // save content
 Route::post('/content', [ContentController::class, 'content']);
+
+// fallback route
+Route::fallback(function () {
+    return view('error.index');
+});
