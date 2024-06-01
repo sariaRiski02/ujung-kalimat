@@ -34,6 +34,6 @@ Kami sangat menghargai kontribusi dari komunitas. Jika Anda memiliki ide, saran,
 
 ## Kontak
 
-Jika Anda memiliki pertanyaan atau masalah, jangan ragu untuk menghubungi kami di [email@ujungkalimat.com](mailto:email@ujungkalimat.com).
+Jika Anda memiliki pertanyaan atau masalah, jangan ragu untuk menghubungi kami di [muhammatsaria026@student.unsrat.ac.id](mailto:muhammatsaria026@student.unsrat.ac.id).
 
 Terima kasih telah menggunakan Ujung Kalimat! 📝
